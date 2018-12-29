@@ -22,9 +22,6 @@ feature -- Interaction for the web
 				l_interaction_element.event_label.subscribe (agent handle_event_label_changed)
 				l_interaction_element.event_output_select.subscribe (agent handle_event_output_select)
 				l_interaction_element.event_output_deselect.subscribe (agent handle_event_output_deselect)
-
-				--For submit funcition
-				l_interaction_element.event_add_submit.subscribe (agent handle_event_add_submit)
 			end
 		end
 
@@ -69,8 +66,6 @@ feature {NONE} -- Implementation
 			events.force (false, "event_output_select")
 			events.force (false, "event_output_deselect")
 			events.force (false, "event_label")
-			events.force (false, "event_add_submit")
-			events.force (false, "event_submit")
 			label_text := void
 		end
 
@@ -103,13 +98,6 @@ feature {NONE} -- Implementation
 			reset_events
 		end
 
-	handle_event_add_submit
-		do
-			events.replace (true, "event_add_submit")
-			layer_application_sif.web_interact (Current)
-			reset_events
-		end
-
 	-- For incoming message
     do_handle_interaction(a_ie_control_expanded: SIF_IE_CONTROL_EXPANDED)
     		-- <Precursor>
@@ -119,13 +107,6 @@ feature {NONE} -- Implementation
 					if attached l_ie_control_event_expanded.events.item ("event")  as l_event and then
 					   l_event.item then
 						l_interaction_element.event.publish([])
-					end
-					if attached l_ie_control_event_expanded.events.item ("event_submit")  as l_event_submit and then
-					   l_event_submit.item and then
-					   attached {STRING_TABLE[STRING]}l_ie_control_event_expanded.submit_list as l_submit_list and then
-					   not l_submit_list.is_empty then
-
-						l_interaction_element.event_submit.publish([l_submit_list])
 					end
 	    		end
 	    	end
