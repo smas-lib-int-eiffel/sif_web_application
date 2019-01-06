@@ -15,13 +15,13 @@
 			<concurrency support="none"/>
 		</capability>
 		<library name="base" location="$ISE_LIBRARY/library/base/base.ecf"/>
-		<library name="communication_sif" location="$ISE_LIBRARY\external\library/communication/sif/src/communication_sif.ecf" readonly="false"/>
+		<library name="communication_sif" location="$ISE_LIBRARY\external\library/communication/sif/communication_sif.ecf" readonly="false"/>
 		<library name="encoder" location="$ISE_LIBRARY/contrib/library/web/framework/ewf/text/encoder/encoder.ecf"/>
 		<library name="json" location="$ISE_LIBRARY/contrib/library/text/parser/json/library/json.ecf"/>
-		<library name="sif_core" location="$ISE_LIBRARY/external/library/sif/core/src/sif_core.ecf" readonly="false"/>
-		<library name="sif_user_viewable" location="$ISE_LIBRARY/external/library/sif/user_viewable/src/sif_user_viewable.ecf" readonly="false"/>
-		<library name="sif_web" location="$ISE_LIBRARY/external/library/sif/web/src/sif_web.ecf" readonly="false"/>
+		<library name="sif_core" location="$ISE_LIBRARY/external/library/sif/core/sif_core.ecf" readonly="false"/>
+		<library name="sif_user_viewable" location="$ISE_LIBRARY/external/library/sif/user_viewable/sif_user_viewable.ecf" readonly="false"/>
+		<library name="sif_web" location="$ISE_LIBRARY/external/library/sif/web/sif_web.ecf" readonly="false"/>
 		<library name="testing" location="$ISE_LIBRARY/library/testing/testing-safe.ecf"/>
-		<cluster name="sif_web_application" location="." recursive="true"/>
+		<cluster name="sif_web_application" location="./src" recursive="true"/>
 	</target>
 </system>
